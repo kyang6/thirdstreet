@@ -11,8 +11,10 @@
   .panel-body
     .row
       .col-md-3
-        = f.hidden_field :student_id , value: 1
         = f.input :name
+        = f.input :email
+        = f.input :phone_number
+
     .row
       .col
         #experiences
