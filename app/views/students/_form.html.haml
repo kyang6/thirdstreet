@@ -1,0 +1,72 @@
+
+= simple_form_for @student, html: { multipart: true } do |f|
+  - if @student.errors.any?
+    #errors
+      %p
+        = @student.errors.count
+        Prevented This Student from Saving
+      %ul 
+        - @student.errors.full_messages.each do |msg|
+          %li= msg
+  .panel-body
+    .row
+      .col-md-3
+        = f.hidden_field :student_id , value: 1
+        = f.input :name
+    .row
+      .col
+        #experiences
+          = f.simple_fields_for :experiences do |experience|
+            = render 'experience_fields', f: experience
+          .links
+
+            = link_to_add_association 'Add Experience', f, :experiences, class: "btn btn-default add-button"
+    .row
+      .col
+        #skills
+          = f.simple_fields_for :skills do |skill|
+            = render 'skill_fields', f: skill
+          .links
+
+            = link_to_add_association 'Add Skill', f, :skills, class: "btn btn-default add-button"
+    .row
+      .col
+        #projects
+          = f.simple_fields_for :projects do |project|
+            = render 'project_fields', f: project
+          .links
+
+            = link_to_add_association 'Add Project', f, :projects, class: "btn btn-default add-button"
+    .row
+      .col
+        #awards
+          = f.simple_fields_for :awards do |award|
+            = render 'award_fields', f: award
+          .links
+
+            = link_to_add_association 'Add Award', f, :awards, class: "btn btn-default add-button"
+    .row
+      .col
+        #activities
+          = f.simple_fields_for :activities do |activity|
+            = render 'activity_fields', f: activity
+          .links
+
+            = link_to_add_association 'Add Activity', f, :activities, class: "btn btn-default add-button"
+    .row
+      .col
+        #educations
+          = f.simple_fields_for :educations do |education|
+            = render 'education_fields', f: education
+          .links
+
+            = link_to_add_association 'Add Education', f, :educations, class: "btn btn-default add-button"
+
+
+
+            
+
+    .row
+      #submit_button
+        = f.button :submit, class: "btn btn-primary"
+

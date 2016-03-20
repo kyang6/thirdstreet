@@ -1,0 +1,53 @@
+%p#notice= notice
+
+%p
+	%b Name:
+	= @student.name
+
+#experiences
+	%h3.title Experiences
+	%ul
+		- @student.experiences.each do |experience|
+
+			%li= experience.description
+
+
+#skills
+	%h3.title Skills
+	%ul
+		- @student.skills.each do |skill|
+
+			%li= skill.description
+
+#projects
+	%h3.title Projects
+	%ul
+		- @student.projects.each do |project|
+			%h3= project.name
+			%li= project.description
+
+#awards
+	%h3.title Awards
+	%ul
+		- @student.awards.each do |award|
+			%h3= award.title
+			%li= award.description
+
+#activities
+	%h3.title Activities
+	%ul
+		- @student.activities.each do |activity|
+			%li= activity.description
+
+#educations
+	%h3.title Education
+	%ul
+		- @student.educations.each do |education|
+			%li= education.description
+
+
+
+
+= link_to 'Edit', edit_student_path(@student)
+\|
+= link_to 'Back', students_path
