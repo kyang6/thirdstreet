@@ -5,16 +5,13 @@
     %thead
       %tr
         %th Name
-        %th
-        %th
-        %th
+        
 
     %tbody
       - @students.each do |student|
         %tr
           %td=  link_to student.name, student
-          %td= link_to 'Edit', edit_student_path(student)
-          %td= link_to 'Destroy', student, :method => :delete, :data => { :confirm => 'Are you sure?' }
+         
 
   %br
 
