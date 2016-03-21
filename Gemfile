@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'cocoon'
 
@@ -27,7 +26,13 @@ gem 'bootstrap-sass'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 
-
+group :development do
+  gem 'sqlite3'
+end
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
