@@ -16,3 +16,308 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+@import url(https://fonts.googleapis.com/css?family=Lato:300);
+
+
+
+@mixin box-shadow {
+	-webkit-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	-moz-box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+	box-shadow: rgba(0, 0, 0, 0.09) 0 2px 0;
+}
+
+$font: 'Lato', sans-serif;
+$titles: #006F8A;
+$lightBlue: #A85743;
+$details: 	#f4f3ee;
+$detailsTitle: #006F8A;
+
+
+body {
+	background: rgb(255, 254, 253);
+
+}
+
+.main_content {
+	padding: 0 0 50px 0;
+}
+
+#submit_button {
+	padding-left: 13px;
+	padding-bottom: 30px;
+}
+
+.alert {
+	padding: 15px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	background: $lightBlue;
+	font-family: $font;
+	color:white;
+}
+
+.navbar {
+
+	margin-bottom: 30px;
+	border: none;
+	background-color: $titles;
+	border-radius: 0;
+
+	.navbar-brand {
+		text-transform: uppercase;
+		letter-spacing: -1px;
+		font-family: $font;
+		font-size: 25px;
+		a {
+			color: $titles;
+		}
+	}
+	.navbar-logins {
+		color:white;
+	}
+}
+.navbar-default .navbar-toggle {
+    border-color: #ddd;
+    margin-top: 8px;
+}
+
+
+footer {
+  position: relative;
+  margin-top: 80px; /* negative value of footer height */
+  height: 70px;
+  clear:both;
+  padding-top:20px;
+  background-color: $titles;
+} 
+
+
+.lab {
+
+	h2 {
+		padding: 15px 5%;
+		margin: 0;
+		font-size: 20px;
+		font-weight: normal;
+		line-height: 1.5;
+		a {
+			color: $titles;
+		}
+	}
+}
+
+#tab {
+	box-shadow: 5px 0px 10px 0 rgba(0, 0, 0, 0.2);
+    background: #FFF;
+    float: left;
+    width: 220px;
+    position: relative;
+    z-index: 1;
+}
+
+
+#warning_labs.col-center {
+	font-family: $font;
+}
+
+#lab_top {
+	margin-bottom: 50px;
+}
+#lab_description {
+	
+	padding: 1.4% 2%;
+	min-height: 100px;
+	border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+}
+
+#lab_info {
+	padding: 3% 3%;
+}
+
+
+#lab_info, #publications, #lists {
+	list-style-type: decimal;
+}
+
+#lab_details {
+	background-color: $details;
+	h5 {
+		padding-top: 3px;
+		padding-bottom: 17px;
+		margin: 12px;
+		border-bottom: 1px dotted;
+	}
+}
+
+#lab_info {
+	h1 {
+
+		font-size: 36px;
+		font-weight: normal;
+		color: $titles;
+	}
+	.description {
+		font-family: $font;
+		color: #8A8A8A;
+		font-size: 20px;
+	}
+}
+
+.lab_image {
+	max-width: 100%;
+	border-radius: 5px;
+	@include box-shadow;
+}
+
+#publications, #projects {
+	margin-bottom: 50px;
+	ul, ol {
+		padding-left: 18px;
+		li {
+			padding: 1em 0;
+			border-bottom: 1px solid #EAEAEA;
+		}
+	}
+}
+
+
+.form-inline {
+	margin-top: 15px;
+}
+
+.form-input {
+	width: 65% !important;
+	float: left;
+}
+.form-button {
+	float: left;
+	width: 30% !important;
+	margin-left: 5%;
+}
+.add-button {
+	margin-top: 25px;
+}
+
+.btn-primary.btn-outline {
+    color: #white;
+}
+
+.tbody {
+	color: white
+}
+.search {
+	border-radius:0;
+}
+
+table.table.labs td {
+    border-top: none;
+}
+table.table.labs tr.sub {
+    border-top: 1px solid #D3D3D3;
+}
+table.table.labs tr.main {
+	border-top: 1px solid #D3D3D3;
+}
+table.table.labs tr.main td.title {
+	font-size: 12pt;
+
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: inherit;
+    border-radius: 0;
+    
+}
+
+.btn-primary.btn-outline:hover, .btn-primary.btn-outline:focus, .btn-primary.btn-outline:active, .btn-primary.btn-outline.active, .open > .dropdown-toggle.btn-primary {
+    color: white;
+}
+.btn-primary.btn-outline:active, .btn-primary.btn-outline.active {
+    border-color: #007299;
+    color: white;
+}
+
+/*
+Titles 
+*/
+h1 {
+	font-family: $font;
+}
+h1.title {
+	font-family: $font;
+}
+
+h2.subhead-center {
+	font-family: $font;
+	text-align: center;
+	background-color: $lightBlue;
+	color: white;
+	padding: 5px;
+
+}
+h3.title {
+	font-family: $font;
+	background-color: $detailsTitle;
+	color: white;
+	padding: 5px;
+	
+}
+h3.subtitle {
+	font-family: $font;
+}
+h3.text-center {
+	padding-top: 40px;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: white;
+}
+h5 {
+	font-family: $font;
+}
+h5.footer {
+	color:white;
+	font-size: 10pt;
+	text-align: center;
+}
+p {
+	font-family: $font;
+}
+p.navbar-logo {
+	font-family: $font;
+	font-size: 18pt;
+	color: white;
+	margin-left: 30px;
+	margin-top: 6px;
+}
+
+li.citation {
+	font-family: $font;
+}
+li.nav {
+	font-family: $font;
+}
+ul.publications {
+	list-style-type: none;
+}
+
+img.category {
+	width: 35px;
+	height: 35px;
+	margin-left: 15px;
+	border-radius: 100%;
+}
+img.center {
+	display: block;
+	margin-top: 40px;
+	width: 200px;
+	height: 200px;
+	margin-left: auto;
+	margin-right: auto;
+}
+.btn-group {
+	font-family: $font;
+}
