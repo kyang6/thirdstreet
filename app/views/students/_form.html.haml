@@ -11,9 +11,11 @@
   .panel-body
     .row
       .col-md-3
+        = f.hidden_field :user_id , value: current_user.id
         = f.input :name
         = f.input :email
         = f.input :phone_number
+        = f.input :team_id
 
     .row
       .col

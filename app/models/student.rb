@@ -17,5 +17,9 @@ class Student < ActiveRecord::Base
   	has_many :educations
   	accepts_nested_attributes_for :educations, reject_if: :all_blank, allow_destroy: true
 
+    belongs_to :user
+
+    belongs_to :team
+
 
 end

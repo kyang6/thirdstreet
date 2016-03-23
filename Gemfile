@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'simple_form'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
-
+gem 'cancancan', '~> 1.10'
 # Use SCSS for stylesheets
 gem 'cocoon'
 
@@ -17,8 +17,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'haml-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 gem 'bootstrap-sass'

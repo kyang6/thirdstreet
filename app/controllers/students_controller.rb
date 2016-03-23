@@ -1,4 +1,5 @@
 class StudentsController < ApplicationController
+  before_action :authenticate_user!, except: [:show, :index]
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
   # GET /students
@@ -14,17 +15,22 @@ class StudentsController < ApplicationController
 
   # GET /students/new
   def new
-    @student = Student.new
+    @student = current_user.students.build
   end
 
   # GET /students/1/edit
   def edit
+    if can? :update, @student
+    else
+      redirect_to root_path, notice: "You do not have permission to Update this Student"
+    end
   end
 
   # POST /students
   # POST /students.json
   def create
-    @student = Student.new(student_params)
+    @user = current_user
+    @student = @user.students.build(student_params)
 
     respond_to do |format|
       if @student.save
@@ -69,7 +75,7 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name, :email, :phone_number, experiences_attributes: [:id, :description, :_destroy],
+      params.require(:student).permit(:name, :email, :phone_number, :team_id, experiences_attributes: [:id, :description, :_destroy],
         skills_attributes: [:id, :description, :_destroy], projects_attributes: [:id, :description,:name, :_destroy], 
         awards_attributes: [:id, :title, :description, :_destroy], activities_attributes: [:id, :description, :_destroy],
         educations_attributes: [:id, :description, :_destroy])
