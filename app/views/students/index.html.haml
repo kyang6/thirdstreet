@@ -6,12 +6,13 @@
       %tr
         %th Name
         
-
+   
     %tbody
       - @students.each do |student|
-        %tr
-          %td=  link_to student.name, student
-         
+        -if current_user.id == student.user_id
+          %tr
+            %td=  link_to student.name, student
+       
 
   %br
 

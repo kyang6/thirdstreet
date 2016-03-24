@@ -14,15 +14,13 @@ class Ability
 
     else
 
-        can :update, Student do |student|
-            student.user == user
-        end
+        can :update, :all
+        
+        can :destroy, :all
 
-        can :destroy, Project do |project|
-            project.user == user
-        end
+        can :create, :all
 
-        can :create, Project
+   
     end
   end
 end

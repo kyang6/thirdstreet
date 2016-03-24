@@ -11,11 +11,19 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
+    if can? :update, @student
+    else
+      redirect_to root_path, notice: "You do not have permission to view this Student's Resume"
+    end
   end
 
   # GET /students/new
   def new
-    @student = current_user.students.build
+    if can? :update, @student
+      @student = current_user.students.build
+    else 
+      redirect_to root_path, notice: "You do not have permission to create a student"
+    end
   end
 
   # GET /students/1/edit
