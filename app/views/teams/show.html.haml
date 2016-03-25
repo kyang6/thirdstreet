@@ -1,5 +1,5 @@
 %p#notice= notice
-=@team.name
+%h1=@team.name
 
 
 #members
@@ -7,6 +7,10 @@
 	%ul
 		- @team.students.each do |student|
 			%h3= student.name
+
+-@team.events.each do |event|
+	%p= event.description
+	=image_tag event.image.url(:large)
 				
 
 = link_to 'Edit', edit_team_path(@team)

@@ -3,6 +3,14 @@
 
 	.form-inputs
 		=f.input :name
+	.row
+		.col
+			#events
+				= f.simple_fields_for :events do |event|
+					= render 'event_fields', f: event
+				.links
+
+				= link_to_add_association 'Add Event', f, :events, class: "btn btn-default add button"
 
 	.form-actions
 	= f.button :submit
