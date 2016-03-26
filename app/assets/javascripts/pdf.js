@@ -5,18 +5,18 @@ $(document).ready(function () {
   
 
     var line = 90;
-    var bulletX = 70;
-    var titleX = 50;
-    var titleTopMargin = 30;
-    var titleBottomMargin = 30;
+    var bulletX = 60;
+    var titleX = 40;
+    var titleTopMargin = 25;
+    var titleBottomMargin = 25;
     var bulletMargin = 20;
 
 
-    var titleSize = 21;
+    var titleSize = 17;
     var nameSize = 30;
-    var detailSize = 13;
-    var bulletSize = 12;
-    var subHeadSize = 14;
+    var detailSize = 12;
+    var bulletSize = 10;
+    var subHeadSize = 12;
 
    	var buttonId = $(this).attr('data');
 
@@ -28,7 +28,7 @@ $(document).ready(function () {
     var projects = $('.projects.name'+buttonId).children();
     var awards = $('.awards.name'+buttonId).children();
     var activities = $('.activities.name'+buttonId).children();
-    var educations = $('.educations.name'+buttonId).children();
+    var educations = $('.education.name'+buttonId).children();
 
     line+=titleTopMargin + 10;
     doc.setFontSize(titleSize);
@@ -136,7 +136,7 @@ $(document).ready(function () {
     doc.setFont("Georgia", "normal");
     educations.each(function(){
     	var education = $(this).html();
-    	doc.text(bulletX,line,education0);
+    	doc.text(bulletX,line,education);
     	doc.ellipse(bulletX-10,line-5,2,2);
     	line+=bulletMargin;
     });
