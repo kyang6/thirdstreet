@@ -5,15 +5,18 @@ $(document).ready(function () {
   
 
     var line = 90;
-    var bulletX = 50;
-    var titleX = 30;
-    var titleTopMargin = 40;
-    var titleBottomMargin = 20;
+    var bulletX = 70;
+    var titleX = 50;
+    var titleTopMargin = 30;
+    var titleBottomMargin = 30;
     var bulletMargin = 20;
 
-    var titleSize = 22;
-    var nameSize = 25;
-    var bulletSize = 14;
+
+    var titleSize = 21;
+    var nameSize = 30;
+    var detailSize = 13;
+    var bulletSize = 12;
+    var subHeadSize = 14;
 
    	var buttonId = $(this).attr('data');
 
@@ -27,23 +30,30 @@ $(document).ready(function () {
     var activities = $('.activities.name'+buttonId).children();
     var educations = $('.educations.name'+buttonId).children();
 
-    line+=titleTopMargin;
+    line+=titleTopMargin + 10;
     doc.setFontSize(titleSize);
+    doc.setFont("Georgia", "bold");
     doc.text(titleX, line, "Experiences");
     line+=titleBottomMargin;
+
     doc.setFontSize(bulletSize);
+    doc.setFont("Georgia", "normal");
     experiences.each(function(){
     	var experience = $(this).html();
-    	doc.text(bulletX,line,experience);
+    	doc.text(bulletX,line, experience);
     	doc.ellipse(bulletX-10,line-5,2,2);
     	line+=bulletMargin;
     });
-
+    
     line+=titleTopMargin;
+
 	doc.setFontSize(titleSize);
+    doc.setFont("Georgia", "bold");
     doc.text(titleX, line, "Skills");
     line+=titleBottomMargin;
+
     doc.setFontSize(bulletSize);
+    doc.setFont("Georgia", "normal");
     skills.each(function(){
     	var skill = $(this).html();
     	doc.text(bulletX,line,skill);
@@ -53,33 +63,62 @@ $(document).ready(function () {
 
     line+=titleTopMargin;
 	doc.setFontSize(titleSize);
+    doc.setFont("Georgia", "bold");
     doc.text(titleX, line, "Projects");
     line+=titleBottomMargin;
+
     doc.setFontSize(bulletSize);
+    doc.setFont("Georgia", "normal");
     projects.each(function(){
-    	var project = $(this).html();
-    	doc.text(bulletX,line,project);
-    	doc.ellipse(bulletX-10,line-5,2,2);
-    	line+=bulletMargin;
+        if($(this).is('h3')){
+            doc.setFontSize(subHeadSize);
+            doc.setFontStyle("bold");
+            var project = $(this).html();
+            doc.text(bulletX,line,project);
+            line+=bulletMargin;
+            doc.setFontSize(bulletSize);
+        } else {
+            var project = $(this).html();
+            doc.setFontStyle("normal");
+            doc.text(bulletX+20,line,project);
+            doc.ellipse(bulletX+10,line-5,2,2);
+            line+=bulletMargin;
+        }
     });
 
     line+=titleTopMargin;
 	doc.setFontSize(titleSize);
+    doc.setFont("Georgia", "bold");
     doc.text(titleX, line, "Awards");
     line+=titleBottomMargin;
+
     doc.setFontSize(bulletSize);
+    doc.setFont("Georgia", "normal");
     awards.each(function(){
-    	var award = $(this).html();
-    	doc.text(bulletX,line,award);
-    	doc.ellipse(bulletX-10,line-5,2,2);
-    	line+=bulletMargin;
+        if($(this).is('h3')){
+            doc.setFontSize(subHeadSize);
+            doc.setFontStyle("bold");
+            var award = $(this).html();
+            doc.text(bulletX,line,award);
+            line+=bulletMargin;
+            doc.setFontSize(bulletSize);
+        } else {
+            var award = $(this).html();
+            doc.setFontStyle("normal");
+            doc.text(bulletX+20,line,award);
+            doc.ellipse(bulletX+10,line-5,2,2);
+            line+=bulletMargin;
+        }
     });
 
     line+=titleTopMargin;
 	doc.setFontSize(titleSize);
+    doc.setFont("Georgia", "bold");
     doc.text(titleX, line, "Activities");
     line+=titleBottomMargin;
+
     doc.setFontSize(bulletSize);
+    doc.setFont("Georgia", "normal");
     activities.each(function(){
     	var activity = $(this).html();
     	doc.text(bulletX,line,activity);
@@ -89,26 +128,37 @@ $(document).ready(function () {
 
     line+=titleTopMargin;
 	doc.setFontSize(titleSize);
+    doc.setFont("Georgia", "bold");
     doc.text(titleX, line, "Education");
     line+=titleBottomMargin;
+
     doc.setFontSize(bulletSize);
+    doc.setFont("Georgia", "normal");
     educations.each(function(){
     	var education = $(this).html();
-    	doc.text(bulletX,line,education);
+    	doc.text(bulletX,line,education0);
     	doc.ellipse(bulletX-10,line-5,2,2);
     	line+=bulletMargin;
     });
     
     
     
+    var headerY = 60;
+    var lineMargin = 10;
+    var detailMargin = 15;
+    var lineLength = 540;
+    var lineRightMargin = bulletX - bulletMargin;
   
     // Header //
     doc.setFontSize(nameSize);
-  	doc.text(400,40, name);
+    doc.setFont("Georgia", "bold");
+  	doc.text(240,headerY, name);
+    doc.line(lineRightMargin, headerY + lineMargin, lineLength, headerY + lineMargin);
 
-  	doc.setFontSize(14);
-  	doc.text(20,60, email);
-  	doc.text(700,60, phone);
+  	doc.setFontSize(detailSize);
+    doc.setFontStyle("normal");
+  	doc.text(lineRightMargin,headerY + lineMargin + detailMargin, email);
+  	doc.text(lineLength-65,headerY + lineMargin + detailMargin, phone);
 
    	
 
