@@ -1,8 +1,9 @@
 .form
 	.nested-fields.awards
 		%br/
-		= f.input :description
+		= f.input :description,input_html: {style: 'width: 100%', class: 'form-control', 'rows'=>5}
 		= f.input :image, as: :file, input_html: {style: 'width: 100%', class: 'form-control'}
+		%br/
 		= link_to_remove_association "Remove", f, class: "form-button btn btn-default"
 		%br/
 		%br/

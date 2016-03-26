@@ -2,7 +2,8 @@
 	= f.error_notification
 
 	.form-inputs
-		=f.input :name
+		=f.input :name,input_html: {style: 'width: 100%', class: 'form-control'}
+		=f.input :image, as: :file, input_html: {style: 'width: 100%', class: 'form-control'}
 	.row
 		.col
 			#events
@@ -12,5 +13,5 @@
 
 				= link_to_add_association 'Add Event', f, :events, class: "btn btn-default add button"
 
-	.form-actions
-	= f.button :submit
+
+	= f.button :submit, class: "btn btn-primary submit"

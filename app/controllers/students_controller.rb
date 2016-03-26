@@ -5,7 +5,11 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    if user_signed_in? 
+      @students = Student.all
+    else 
+      redirect_to root_path, notice: "You cannot view students"
+    end
   end
 
  
@@ -60,7 +64,7 @@ class StudentsController < ApplicationController
   def update
     respond_to do |format|
       if @student.update(student_params)
-        format.html { redirect_to @student, notice: 'Student was successfully updated.' }
+        format.html { redirect_to current_user, notice: 'Student was successfully updated.' }
         format.json { render :show, status: :ok, location: @student }
       else
         format.html { render :edit }
@@ -74,7 +78,7 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
-      format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
+      format.html { redirect_to current_user, notice: 'Student was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

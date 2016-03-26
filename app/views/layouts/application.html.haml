@@ -9,12 +9,13 @@
 	%nav.navbar.navbar-default{role: "navigation"}
 		#tab
 			.navbar-brand 
-				= link_to "3rd Street", root_path
+				= link_to "3rd Street", root_path ,{class: "header"}
 		%nav.navbar-nav.navbar-right
 			- if user_signed_in?
 				%ul.nav.navbar-nav.navbar-right
-					%li.nav= link_to "Sign Out", destroy_user_session_path, method: :delete
 					%li.nav= link_to "My Profile", current_user
+					%li.nav= link_to "Sign Out", destroy_user_session_path, method: :delete
+					
 			- else
 				%ul.nav.navbar-nav.navbar-right
 					%li.nav= link_to "PI Sign In", new_user_session_path

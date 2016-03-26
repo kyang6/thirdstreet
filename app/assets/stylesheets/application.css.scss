@@ -98,7 +98,15 @@ body {
     margin-top: 8px;
 }
 
+.navbar-nav > li > a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 60px;
+}
 
+a.header{
+	margin-left: 20px;
+}
 footer {
   position: relative;
   margin-top: 80px; /* negative value of footer height */
@@ -108,7 +116,10 @@ footer {
   background-color: $titles;
 } 
 
-
+p.text {
+	margin-top: 30%;
+    font-size: medium;
+}
 .lab {
 
 	h2 {
@@ -133,70 +144,8 @@ footer {
 }
 
 
-#warning_labs.col-center {
-	font-family: $font;
-}
-
-#lab_top {
-	margin-bottom: 50px;
-}
-#lab_description {
-	
-	padding: 1.4% 2%;
-	min-height: 100px;
-	border-top-left-radius: 5px;
-	border-top-right-radius: 5px;
-}
-
-#lab_info {
-	padding: 3% 3%;
-}
 
 
-#lab_info, #publications, #lists {
-	list-style-type: decimal;
-}
-
-#lab_details {
-	background-color: $details;
-	h5 {
-		padding-top: 3px;
-		padding-bottom: 17px;
-		margin: 12px;
-		border-bottom: 1px dotted;
-	}
-}
-
-#lab_info {
-	h1 {
-
-		font-size: 36px;
-		font-weight: normal;
-		color: $titles;
-	}
-	.description {
-		font-family: $font;
-		color: #8A8A8A;
-		font-size: 20px;
-	}
-}
-
-.lab_image {
-	max-width: 100%;
-	border-radius: 5px;
-	@include box-shadow;
-}
-
-#publications, #projects {
-	margin-bottom: 50px;
-	ul, ol {
-		padding-left: 18px;
-		li {
-			padding: 1em 0;
-			border-bottom: 1px solid #EAEAEA;
-		}
-	}
-}
 
 
 .form-inline {
@@ -215,7 +164,9 @@ footer {
 .add-button {
 	margin-top: 25px;
 }
-
+.btn-primary.submit {
+	margin-top: 5%;
+}
 .btn-primary.btn-outline {
     color: #white;
 }
@@ -256,6 +207,9 @@ table.table.labs tr.main td.title {
     color: white;
 }
 
+.container.editbtn {
+	margin-top: 10%;
+}
 /*
 Titles 
 */
@@ -326,6 +280,10 @@ img.category {
 	margin-left: 15px;
 	border-radius: 100%;
 }
+img.img-circle {
+	width:450px;
+	height:450px;
+}
 img.center {
 	display: block;
 	margin-top: 40px;
@@ -333,6 +291,15 @@ img.center {
 	height: 200px;
 	margin-left: auto;
 	margin-right: auto;
+}
+
+img.title_center {
+
+	margin-top: 40px;
+	width: 400px;
+	height: 400px;
+	margin-left: 7%;
+	margin-right: 7%;
 }
 .btn-group {
 	font-family: $font;

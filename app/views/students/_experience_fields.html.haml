@@ -2,7 +2,7 @@
 	.nested-fields.experience
 		%br/
 		
-		= f.input :description, input_html: {style: 'width: 100%', class: 'form-control'}
+		= f.input :description, label: "Experience Description", input_html: {style: 'width: 100%', class: 'form-control'}
 		%br/
 		= link_to_remove_association "Remove", f, class: "form-button btn btn-default"
 		%br/

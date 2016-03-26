@@ -1,17 +1,13 @@
-%h1 Listing teams
-
-%table
-  %thead
-    %tr
-      %th
-      
-
-  %tbody
-    - @teams.each do |team|
-      %tr
-        %td= link_to team.name, team
-     
-
-%br
-
-= link_to 'New Team', new_team_path
+.container
+	%table
+		%thead
+			%tr
+				%th
+	      
+		%tbody
+			- @teams.each do |team|
+				=link_to image_tag(team.image.url(:medium),class:"title_center"), team
+	     
+	%br
+-if user_signed_in?
+	= link_to 'New Team', new_team_path

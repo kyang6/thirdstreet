@@ -52,8 +52,8 @@
 							%li= education.description
 		
 			.col-md-3
-			
-				%h2= link_to 'Edit', edit_student_path(student)
-				%button.btn.btn-primary.pdf{data:"#{student.name.delete(' ')}"}= "Generate PDF"
+				.container.editbtn
+					%h2= link_to 'Edit', edit_student_path(student)
+					%button.btn.btn-primary.pdf{data:"#{student.name.delete(' ')}"}= "Generate PDF"
 
 

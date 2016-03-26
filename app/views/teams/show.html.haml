@@ -1,4 +1,4 @@
-%p#notice= notice
+
 %h1=@team.name
 
 
@@ -8,11 +8,23 @@
 		- @team.students.each do |student|
 			%h3= student.name
 
--@team.events.each do |event|
-	%p= event.description
-	=image_tag event.image.url(:large)
-				
+-@team.events.each_with_index do |event,index|
+	-if index%2 == 0
+		.row
+			.col.col-md-5
+				%p.text= event.description
+			.col.col-md-2
+			.col.col-md-5
+				=image_tag event.image.url(:large),class:"img-circle"
+	-if index%2 == 1
+		.row
+			.col.col-md-5
+				=image_tag event.image.url(:large),class:"img-circle"
+			.col.col-md-2
+			.col.col-md-5
+				%p.text= event.description
 
-= link_to 'Edit', edit_team_path(@team)
-\|
-= link_to 'Back', teams_path
+				
+-if user_signed_in?
+	= link_to 'Edit', edit_team_path(@team)
+	
