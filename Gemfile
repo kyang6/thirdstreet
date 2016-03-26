@@ -7,7 +7,7 @@ gem 'cancancan', '~> 1.10'
 # Use SCSS for stylesheets
 gem 'cocoon'
 
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '< 2.0'
 
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
