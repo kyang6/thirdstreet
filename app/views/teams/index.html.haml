@@ -5,8 +5,14 @@
 				%th
 	      
 		%tbody
-			- @teams.each do |team|
-				=link_to image_tag(team.image.url(:medium),class:"title_center"), team
-	     
+			/ - @teams.each do |team|
+			/ 	.col-md-6
+			/ 		%h1=link_to team.name, team
+			/ 		=link_to image_tag(team.image.url(:medium),class:"title_center"), team
+			
+			=link_to image_tag("https://dl.dropboxusercontent.com/s/gyk2gql8p39y33u/troopers.JPG?dl=0"), @teams.last(2).first
+			=link_to image_tag("https://dl.dropboxusercontent.com/s/6vf8qvpp18mjabw/golden.JPG?dl=0"), @teams.last
+
+			
 	%br
 
