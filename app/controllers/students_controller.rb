@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :authenticate_user!, except: [:show, :index]
-  before_action :set_student, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:update, :destroy]
 
   # GET /students
   # GET /students.json
@@ -8,10 +8,13 @@ class StudentsController < ApplicationController
     @students = Student.all
   end
 
+ 
+
   # GET /students/1
   # GET /students/1.json
   def show
     if can? :update, @student
+      set_student
     else
       redirect_to root_path, notice: "You do not have permission to view this Student's Resume"
     end
@@ -29,6 +32,7 @@ class StudentsController < ApplicationController
   # GET /students/1/edit
   def edit
     if can? :update, @student
+      set_student
     else
       redirect_to root_path, notice: "You do not have permission to Update this Student"
     end

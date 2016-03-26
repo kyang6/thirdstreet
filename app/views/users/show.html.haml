@@ -1,16 +1,18 @@
-.container
-	
-	- @student.each do |student|
+
+- @student.each do |student|
+	.container{id: "#{student.name.delete(' ')}"}
 		.row
 			.col-md-9
-				%p
-					%h1=  student.name
-					%h3= student.email
-					%h3= student.phone_number
+		
+				%h1.name{class: "name#{student.name.delete(' ')}"}=  student.name
+
+				%h3.email{class: "name#{student.name.delete(' ')}"}= student.email
+		
+				%h3.phone{class: "name#{student.name.delete(' ')}"}= student.phone_number
 
 				#experiences
 					%h3.title Experiences
-					%ul
+					%ul.experiences{class: "name#{student.name.delete(' ')}"}
 						- student.experiences.each do |experience|
 
 							%li= experience.description
@@ -18,39 +20,40 @@
 
 				#skills
 					%h3.title Skills
-					%ul
+					%ul.skills{class: "name#{student.name.delete(' ')}"}
 						- student.skills.each do |skill|
 
 							%li= skill.description
 
 				#projects
 					%h3.title Projects
-					%ul
+					%ul.projects{class: "name#{student.name.delete(' ')}"}
 						- student.projects.each do |project|
 							%h3= project.name
 							%li= project.description
 
 				#awards
 					%h3.title Awards
-					%ul
+					%ul.awards{class: "name#{student.name.delete(' ')}"}
 						- student.awards.each do |award|
 							%h3= award.title
 							%li= award.description
 
 				#activities
 					%h3.title Activities
-					%ul
+					%ul.activities{class: "name#{student.name.delete(' ')}"}
 						- student.activities.each do |activity|
 							%li= activity.description
 
 				#educations
 					%h3.title Education
-					%ul
+					%ul.education{class: "name#{student.name.delete(' ')}"}
 						- student.educations.each do |education|
 							%li= education.description
 		
 			.col-md-3
-				#choices
-					%h2= link_to 'Edit', edit_student_path(student)
+			
+				%h2= link_to 'Edit', edit_student_path(student)
+				%button.btn.btn-primary.pdf{data:"#{student.name.delete(' ')}"}= "Generate PDF"
 
 
